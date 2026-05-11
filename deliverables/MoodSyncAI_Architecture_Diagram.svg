@@ -1,0 +1,111 @@
+<svg width="1400" height="860" viewBox="0 0 1400 860" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">MoodSyncAI Architecture Diagram</title>
+  <desc id="desc">Architecture diagram showing image and text inputs, AI models, fusion logic, and final multimodal output.</desc>
+  <defs>
+    <filter id="shadow" x="-15%" y="-20%" width="130%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#102A43" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L12,7 L2,12 Z" fill="#486581"/>
+    </marker>
+    <style>
+      .bg { fill: #f7fafc; }
+      .title { font: 700 36px Arial, Helvetica, sans-serif; fill: #102a43; }
+      .subtitle { font: 400 18px Arial, Helvetica, sans-serif; fill: #486581; }
+      .section-label { font: 700 15px Arial, Helvetica, sans-serif; fill: #627d98; letter-spacing: 1px; }
+      .box-title { font: 700 21px Arial, Helvetica, sans-serif; fill: #102a43; }
+      .box-text { font: 400 15px Arial, Helvetica, sans-serif; fill: #334e68; }
+      .small-text { font: 400 13px Arial, Helvetica, sans-serif; fill: #486581; }
+      .pill-text { font: 700 12px Arial, Helvetica, sans-serif; fill: #ffffff; letter-spacing: .6px; }
+      .box { rx: 14; filter: url(#shadow); stroke-width: 1.5; }
+      .input { fill: #ffffff; stroke: #9fb3c8; }
+      .model { fill: #eef7ff; stroke: #2f80ed; }
+      .fusion { fill: #fff8e6; stroke: #d89b00; }
+      .output { fill: #edf9f0; stroke: #2f9e44; }
+      .fallback { fill: #f8f0ff; stroke: #805ad5; }
+      .line { fill: none; stroke: #486581; stroke-width: 3; marker-end: url(#arrow); }
+      .soft-line { fill: none; stroke: #9fb3c8; stroke-width: 2.5; marker-end: url(#arrow); stroke-dasharray: 8 8; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1400" height="860"/>
+
+  <text class="title" x="70" y="68">MoodSyncAI Architecture</text>
+  <text class="subtitle" x="70" y="100">Multimodal emotion analysis using facial expression, text sentiment, fusion logic, and explanation generation</text>
+
+  <text class="section-label" x="95" y="165">USER INPUTS</text>
+  <text class="section-label" x="465" y="165">MODALITY MODELS</text>
+  <text class="section-label" x="830" y="165">FUSION + EXPLANATION</text>
+  <text class="section-label" x="1130" y="165">APP OUTPUT</text>
+
+  <!-- User inputs -->
+  <rect class="box input" x="70" y="190" width="280" height="150"/>
+  <rect x="94" y="214" width="78" height="26" rx="13" fill="#2f80ed"/>
+  <text class="pill-text" x="112" y="232">IMAGE</text>
+  <text class="box-title" x="94" y="272">Face Image</text>
+  <text class="box-text" x="94" y="302">Upload image or</text>
+  <text class="box-text" x="94" y="325">capture using webcam</text>
+
+  <rect class="box input" x="70" y="450" width="280" height="150"/>
+  <rect x="94" y="474" width="70" height="26" rx="13" fill="#2f80ed"/>
+  <text class="pill-text" x="113" y="492">TEXT</text>
+  <text class="box-title" x="94" y="532">Sentence Input</text>
+  <text class="box-text" x="94" y="562">User types what the</text>
+  <text class="box-text" x="94" y="585">person said</text>
+
+  <!-- Models -->
+  <rect class="box model" x="430" y="190" width="310" height="150"/>
+  <text class="box-title" x="456" y="242">Facial Emotion Model</text>
+  <text class="box-text" x="456" y="276">Vision Transformer</text>
+  <text class="small-text" x="456" y="304">trpakov/vit-face-expression</text>
+  <text class="small-text" x="456" y="326">happy, sad, angry, neutral, fear...</text>
+
+  <rect class="box model" x="430" y="450" width="310" height="150"/>
+  <text class="box-title" x="456" y="502">Text Sentiment Model</text>
+  <text class="box-text" x="456" y="536">DistilBERT Transformer</text>
+  <text class="small-text" x="456" y="564">distilbert-base-uncased-finetuned-sst-2</text>
+  <text class="small-text" x="456" y="586">POSITIVE or NEGATIVE sentiment</text>
+
+  <!-- Fusion -->
+  <rect class="box fusion" x="810" y="310" width="300" height="170"/>
+  <text class="box-title" x="838" y="362">Fusion Layer</text>
+  <text class="box-text" x="838" y="396">Compares image emotion</text>
+  <text class="box-text" x="838" y="420">with text sentiment</text>
+  <text class="small-text" x="838" y="450">Rules: aligned, mismatch, uncertain</text>
+
+  <rect class="box fallback" x="810" y="560" width="300" height="130"/>
+  <text class="box-title" x="838" y="610">Explanation Generator</text>
+  <text class="box-text" x="838" y="642">DistilGPT-2 family model</text>
+  <text class="small-text" x="838" y="668">Fallback template for demo reliability</text>
+
+  <!-- Outputs -->
+  <rect class="box output" x="1190" y="260" width="150" height="340"/>
+  <text class="box-title" x="1216" y="310">Results</text>
+  <text class="box-text" x="1216" y="350">Facial emotion</text>
+  <text class="box-text" x="1216" y="384">Text sentiment</text>
+  <text class="box-text" x="1216" y="418">Fusion status</text>
+  <text class="box-text" x="1216" y="452">Confidence</text>
+  <text class="box-text" x="1216" y="486">Bar chart</text>
+  <text class="box-text" x="1216" y="520">Explanation</text>
+  <text class="small-text" x="1216" y="560">Streamlit UI</text>
+
+  <!-- Arrows -->
+  <path class="line" d="M350 265 C380 265, 395 265, 424 265"/>
+  <path class="line" d="M350 525 C380 525, 395 525, 424 525"/>
+  <path class="line" d="M740 265 C790 265, 790 350, 806 370"/>
+  <path class="line" d="M740 525 C790 525, 790 442, 806 425"/>
+  <path class="line" d="M1110 395 C1145 395, 1155 395, 1184 395"/>
+  <path class="soft-line" d="M960 480 C960 510, 960 530, 960 554"/>
+  <path class="soft-line" d="M1110 625 C1150 625, 1168 560, 1188 530"/>
+
+  <!-- Bottom notes -->
+  <rect x="70" y="735" width="1270" height="64" rx="16" fill="#ffffff" stroke="#d9e2ec"/>
+  <text class="box-text" x="100" y="762">Final decision labels:</text>
+  <rect x="260" y="744" width="115" height="34" rx="17" fill="#2f9e44"/>
+  <text class="pill-text" x="288" y="766">ALIGNED</text>
+  <rect x="395" y="744" width="125" height="34" rx="17" fill="#d64545"/>
+  <text class="pill-text" x="421" y="766">MISMATCH</text>
+  <rect x="540" y="744" width="130" height="34" rx="17" fill="#7b8794"/>
+  <text class="pill-text" x="567" y="766">UNCERTAIN</text>
+  <text class="small-text" x="710" y="766">The fusion layer is the core step that converts separate model predictions into one multimodal interpretation.</text>
+</svg>
